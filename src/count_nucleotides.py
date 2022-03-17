@@ -1,5 +1,5 @@
 
-seq = 'AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC'
+seq = input("Dame una secuencia de DNA: ")
 
 print("frecuencia de A: ", seq.count('A'))
 
