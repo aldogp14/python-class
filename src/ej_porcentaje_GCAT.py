@@ -1,19 +1,33 @@
-# se guarda la direccion del archivo con la secuencia en una variable
+'''
+NAME
+    ej_porcentaje_GCAT
+
+VERSION
+   1.0
+
+AUTHOR
+    Aldo Garcia Prado
+
+DESCRIPTION
+    Programa que indica los porcentajes de GC y AT cuando le introduces la direccion de la secuencia.
+
+USAGE
+
+
+ARGUMENTS
+
+'''
+
+# Pedir la secuencia al usuario y guardarla en una variable
 nombre_archivo = input("Introduce la direccion del archivo con la secuencia: ")
-
-# se abre un archivo con la direccion
 archivo = open(nombre_archivo)
-
-# se guarda el contenido del archivo leido, se quita el salto de linea
 contenido = archivo.read().rstrip('\n')
 
-# se guarda la longitud de la cadena
+# Hacer las cuentas y calculos para los porcentajes
 long = len(contenido)
-
-# se sacan los porcentajes
 porcentaje_AT = ((contenido.count('A') + contenido.count('T')) / long * 100)
 porcentaje_GC = ((contenido.count('G') + contenido.count('C')) / long * 100)
 
-# se imprimen los porcentajes
+# imprimir los porcentajes
 print(
-    F"Porcentaje de AT: {porcentaje_AT}%\nPorcentaje de GC: {porcentaje_GC}%")
+    F"Porcentaje de AT: {porcentaje_AT}%\nPorcentaje de GC: {porcentaje_GC}%\n")
