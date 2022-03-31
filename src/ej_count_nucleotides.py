@@ -12,10 +12,10 @@ DESCRIPTION
     Programa que cuenta el numero de A, T, C y G en una secuencia introducida por el usuario.
 
 USAGE
-
+    null
 
 ARGUMENTS
-
+    null
 '''
 # Pedir la secuencia
 seq = input(F"Dame una secuencia de DNA:\n")

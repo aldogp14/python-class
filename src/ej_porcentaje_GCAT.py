@@ -12,10 +12,10 @@ DESCRIPTION
     Programa que indica los porcentajes de GC y AT cuando le introduces la direccion de la secuencia.
 
 USAGE
-
+    null
 
 ARGUMENTS
-
+    null
 '''
 
 # Pedir la secuencia al usuario y guardarla en una variable
