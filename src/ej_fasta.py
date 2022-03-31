@@ -1,17 +1,31 @@
-# se guarda la direccion del archivo con la secuencia en una variable
+'''
+NAME
+    ej_fasta.py
+
+VERSION
+   1.0
+
+AUTHOR
+    Aldo Garcia Prado
+
+DESCRIPTION
+    Programa que crea un archivo fasta a partir de una secuencia en cierta direccion establecida.
+
+USAGE
+
+
+ARGUMENTS
+
+'''
+
+# Guardar la secuencia de interes en una variable
 file_name = 'data/dna.txt'
-
-# se abre un archivo con la direccion
 file = open(file_name)
-
-# se lee y guarda el contenido del archivo
 content = file.read().rstrip('\n')
 
-# se crea el archivo fasta
+# Abri un archivo en carpeta data y escribir la secuencia con formato FASTA
 fasta = open("data/dna.fasta", 'w')
-
-# se escribe el formato de archivo FASTA y se guarda la secuencia
 fasta.write(F">sequence_name\n{content}")
 
-# se cierra el archivo
+# Cerrar el archivo
 fasta.close()
