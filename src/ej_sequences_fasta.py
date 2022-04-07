@@ -17,29 +17,21 @@ USAGE
 ARGUMENTS
     null
 '''
-# Guardar las secuencias como una cadena y no como lista.
+# Guardar las secuencias como lista.
 file = open('data/dna_sequences.txt')
-content = file.read()
-
-# Cortar la cadena por saltos de linea, para que cada secuencia quede en un elemento de una lista.
-sequences = content.split('\n')
+sequences = file.readlines()
 
 # Abrir el archivo para el fasta
 fasta = open("results/sequences_fasta.txt", 'w')
 
 # Recorrer cada elemento de la lista.
-# Antes que nada se debe agregar el > al nombre de la secuencia.
-# De cada elemento, separar la parte de "seq#" de la secuencia y eso mandarlo a otra lista para poder recorrer esta ultima y dar el formato fasta.
-# Con replace y upper hacer las modificaciones pertinentes.
+# Primero hacer modificaciones generales y luego especificas, como el upper y reemplazar caracteres.
+# Guardar cada elemento modificado en un archivo.
 for sequence in sequences:
-    seq = sequence.replace(F"{sequence}", F"> {sequence}")
-    template = seq.split('   ')
-    for t in template:
-        if t == "> seq_1" or t == "> seq_2" or t == "> seq_3":
-            fasta.write(F"{t}\n")
-        else:
-            x = t.upper().replace("-", "", 1000)
-            fasta.write(F"{x}\n")
+    seq = sequence.replace(F"{sequence}", F"> {sequence}").split("   ")
+    seq[1] = seq[1].upper().replace("-", "", 1000).rstrip('\n')
+    for s in seq:
+        fasta.write(F"{s}\n")
 
 # Cerrar el archivo
 fasta.close()
