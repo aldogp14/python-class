@@ -18,7 +18,7 @@ ARGUMENTS
     null
 '''
 # Pedir la secuencia
-seq = input(F"Dame una secuencia de DNA:\n")
+seq = input(F"Dame una secuencia de DNA:\n").upper()
 
 # Imprimir las frecuencias contando cuantas veces aparecen A, T, C o G segun sea el caso.
 print(f"\nfrecuencia de A:", seq.count('A'), "\nfrecuencia de T:", seq.count(
