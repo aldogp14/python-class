@@ -21,7 +21,7 @@ ARGUMENTS
 # Pedir la secuencia al usuario y guardarla en una variable
 nombre_archivo = input("Introduce la direccion del archivo con la secuencia: ")
 archivo = open(nombre_archivo)
-contenido = archivo.read().rstrip('\n')
+contenido = archivo.read().rstrip('\n').upper()
 
 # Hacer las cuentas y calculos para los porcentajes
 long = len(contenido)
