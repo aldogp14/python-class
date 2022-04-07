@@ -29,3 +29,4 @@ fasta.write(F">sequence_name\n{content}")
 
 # Cerrar el archivo
 fasta.close()
+file.close()
