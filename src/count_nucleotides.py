@@ -1,10 +1,32 @@
+'''
+NAME
+    ej_count_nucleotides
 
-seq = input(F"Dame una secuencia de DNA:\n")
+VERSION
+   1.1
 
-print("frecuencia de A: ", seq.count('A'))
+AUTHOR
+    Aldo Garcia Prado
 
-print("frecuencia de T: ", seq.count('T'))
+DESCRIPTION
+    Programa que cuenta el numero de A, T, C y G en una secuencia introducida por el usuario.
 
-print("frecuencia de C: ", seq.count('C'))
+USAGE
+    null
 
-print("frecuencia de G: ", seq.count('G'))
+ARGUMENTS
+    null
+'''
+from typing import IO
+
+# Pedir la secuencia
+seq = input(F"Dame una secuencia de DNA:\n").upper()
+
+# ver si la secuencia tiene Ns y mandar error
+if seq.count('N') > 0:
+    raise ValueError(F"La secuencia contiene {seq.count('N')} Ns")
+
+# Imprimir las frecuencias contando cuantas veces aparecen A, T, C o G segun sea el caso.
+else:
+    print(f"\nfrecuencia de A:", seq.count('A'), "\nfrecuencia de T:", seq.count(
+        'T'), "\nfrecuencia de C:", seq.count('C'), "\nfrecuencia de G:", seq.count('G'), "\n")
