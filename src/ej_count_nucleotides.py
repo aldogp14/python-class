@@ -23,8 +23,12 @@ from typing import IO
 seq = input(F"Dame una secuencia de DNA:\n").upper()
 
 # ver si la secuencia tiene Ns y mandar error
-if seq.count('N') > 0:
-    raise ValueError(F"La secuencia contiene {seq.count('N')} Ns")
+try:
+    if seq.count('N') > 0:
+        raise ValueError()
+except ValueError:
+    print(F"Tu secuencia contiene {seq.count('N')} Ns")
+    quit()
 
 # Imprimir las frecuencias contando cuantas veces aparecen A, T, C o G segun sea el caso.
 else:

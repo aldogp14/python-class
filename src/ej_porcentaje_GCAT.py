@@ -17,6 +17,7 @@ USAGE
 ARGUMENTS
     null
 '''
+from multiprocessing.sharedctypes import Value
 from typing import IO
 
 # Pedir la direccion al usuario y guardarla en una variable
@@ -28,19 +29,32 @@ try:
 
 except IOError as ex:
     print(F"El archivo {ex.filename} no se encuentra\n")
+    quit()
 
 else:
     seq = archivo.read().rstrip('\n')
 
     # Ver si la secuencia tiene Ns y mandar un error si asi es.
-    if seq.count('N') > 0:
-        raise ValueError(F"La secuencia contiene {seq.count('N')} Ns")
+    try:
+        if seq.count('N') > 0:
+            raise ValueError()
+    except ValueError:
+        print(F"La secuencia contiene {seq.count('N')} Ns")
+        quit()
 
-    # Hacer las cuentas y calculos para los porcentajes
     else:
-        long = len(seq)
-        porcentaje_AT = ((seq.count('A') + seq.count('T')) / long * 100)
-        porcentaje_GC = ((seq.count('G') + seq.count('C')) / long * 100)
+        try:
+            # Ver si la cadena esta vacia
+            if (len(seq) < 1):
+                raise ValueError()
+        except ValueError:
+            print(F"Tu cadena esta vacia")
+            quit()
+        # Hacer las cuentas y calculos para los porcentajes
+        else:
+            long = len(seq)
+            porcentaje_AT = ((seq.count('A') + seq.count('T')) / long * 100)
+            porcentaje_GC = ((seq.count('G') + seq.count('C')) / long * 100)
 
 # imprimir los porcentajes
 print(

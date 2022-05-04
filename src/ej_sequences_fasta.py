@@ -24,6 +24,7 @@ try:
 # ver si la direccion en el codigo es correcta
 except IOError as ex:
     print(F"El archivo {ex.filename} no se encuentra\n")
+    quit()
 
 else:
     sequences = file.readlines()
@@ -42,3 +43,6 @@ else:
 
     # Cerrar el archivo
     fasta.close()
+
+    # Decir al usuario donde esta su archivo generado
+    print("Tus secuencias con formato fasta se encuentran en results/dna.fasta")

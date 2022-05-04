@@ -25,7 +25,8 @@ try:
 
 except IOError as ex:
     print(F"El archivo {ex.filename} no se encuentra\n")
-
+    quit ()
+    
 else:
     sequences = file.readlines()
 
@@ -39,6 +40,6 @@ else:
 
     # Cerrar el archivo
     no_adapters.close()
-    
+
     # Dar mensaje al usuario de donde se encuentra el resultado
     print(F"Las secuencias sin adaptadores se encuentran en results/no_adapters.txt\n")
