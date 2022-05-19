@@ -9,17 +9,29 @@ AUTHOR
     Aldo Garcia Prado
 
 DESCRIPTION
-    programa que imprime el porcentaje de un aminoacido en una secuencia
+    programa que imprime el porcentaje de un aminoacido en una secuencia, los parametros se pasan por linea de comandos
 
 USAGE
 
 
 ARGUMENTS
-    null
+    -i: secuencia en la que se buscara el aminoacido
+    -aa: codigo IUPAC de una letra del aminoacido a buscar
 '''
-secuencia = input(
-    "introduce la secuencia en la cual se buscaran tus aminoacidos: ").upper()
-aa = input("Introduce el aminoacido a buscar: ").upper()
+import argparse
+
+# crear parametros
+parser = argparse.ArgumentParser(
+    description="Script que calcula el porcentaje de un aminoacido en una secuencia")
+parser.add_argument("-i", "--input", metavar="path/to/file",
+                    help="secuencia de aas", required=True)
+parser.add_argument("-aa", "--aminoAcido", metavar="path/to/file",
+                    help="aminoacido a buscar", required=True)
+args = parser.parse_args()
+
+# guardar parametros en variables y pasar a mayusculas
+secuencia = args.input.upper()
+aa = args.aminoAcido.upper()
 
 
 def porcentaje_aa(secuencia, aa):  # funcion para calcular porcentaje
@@ -29,14 +41,3 @@ def porcentaje_aa(secuencia, aa):  # funcion para calcular porcentaje
 
 # imprimir porcentaje
 print(porcentaje_aa(secuencia, aa))
-
-# hacer las pruebas
-try:
-    assert porcentaje_aa("MSRSLLLRFLLFLLLLPPLP", "M") == 5
-    # en este manda error por no estar en mayuscula, sin embargo cuando el usuario lo ingresa de esta forma no hay problema ya que se hace un upper a su input
-    assert porcentaje_aa("MSRSLLLRFLLFLLLLPPLP", "r") == 10
-    assert porcentaje_aa("msrslllrfllfllllpplp", "L") == 50
-    assert porcentaje_aa("MSRSLLLRFLLFLLLLPPLP", "Y") == 0
-    print("todo funciona bien")
-except:
-    print("algo anda mal")

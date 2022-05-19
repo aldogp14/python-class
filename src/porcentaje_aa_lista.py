@@ -9,19 +9,29 @@ AUTHOR
     Aldo Garcia Prado
 
 DESCRIPTION
-    programa que imprime la suma de los porcentajes de aminoacidos en una secuencia
+    programa que imprime la suma de los porcentajes de aminoacidos en una secuencia, los parametros se pasan por linea de comandos
 
 USAGE
 
 
 ARGUMENTS
-    null
+    -i: secuencia en la que se buscara el aminoacido
+    -aa_s: codigo IUPAC de los aminoacidoa a buscar
 '''
+import argparse
+
+# crear parametros
+parser = argparse.ArgumentParser(
+    description="Script que calcula calcula la suma del porcentaje de aminoacidos en una secuencia")
+parser.add_argument("-i", "--input", metavar="path/to/file",
+                    help="secuencia de aas", required=True)
+parser.add_argument("-as", "--aminoAcidos", metavar="path/to/file",
+                    help="lista aminoacidos a buscar", required=False)
+args = parser.parse_args()
 
 # guardar parametros en variables y pasar a mayuscula la secuencia
-secuencia = input(
-    "introduce la secuencia en la cual se buscaran tus aminoacidos: ").upper()
-aa_s = input("Introduce los aminoacidos a buscar: ")
+secuencia = args.input.upper()
+aa_s = args.aminoAcidos
 
 
 # funcion para calcular porcentaje
@@ -38,13 +48,3 @@ if aa_s:
     print(porcentaje_aa(secuencia, aa_s.upper()))
 else:
     print(porcentaje_aa(secuencia))
-
-# hacer las pruebas
-try:
-    assert porcentaje_aa("MSRSLLLRFLLFLLLLPPLP", ["M"]) == 5
-    assert porcentaje_aa("MSRSLLLRFLLFLLLLPPLP", ['M', 'L']) == 55
-    assert porcentaje_aa("MSRSLLLRFLLFLLLLPPLP", ['F', 'S', 'L']) == 70
-    assert porcentaje_aa("MSRSLLLRFLLFLLLLPPLP") == 65
-    print("todo funciona bien")
-except:
-    print("Existe un error")
