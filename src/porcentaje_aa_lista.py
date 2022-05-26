@@ -9,10 +9,11 @@ AUTHOR
     Aldo Garcia Prado
 
 DESCRIPTION
-    programa que imprime la suma de los porcentajes de aminoacidos en una secuencia, los parametros se pasan por linea de comandos
+    programa que imprime la suma de los porcentajes de aminoacidos en una secuencia, 
+    los parametros se pasan por linea de comandos
 
 USAGE
-
+    python sr/porcentaje_aa_lista.py [-h] -i str [-as list]
 
 ARGUMENTS
     -i: secuencia en la que se buscara el aminoacido
@@ -23,9 +24,9 @@ import argparse
 # crear parametros
 parser = argparse.ArgumentParser(
     description="Script que calcula calcula la suma del porcentaje de aminoacidos en una secuencia")
-parser.add_argument("-i", "--input", metavar="path/to/file",
+parser.add_argument("-i", "--input", metavar="str",
                     help="secuencia de aas", required=True)
-parser.add_argument("-as", "--aminoAcidos", metavar="path/to/file",
+parser.add_argument("-as", "--aminoAcidos", metavar="list",
                     help="lista aminoacidos a buscar", required=False)
 args = parser.parse_args()
 
