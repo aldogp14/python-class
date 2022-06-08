@@ -19,13 +19,14 @@ ARGUMENTS
     -aa_s: codigo IUPAC de los aminoacidoa a buscar
 '''
 import argparse
+import re
 
 # crear parametros
 parser = argparse.ArgumentParser(
     description="Script que calcula calcula la suma del porcentaje de aminoacidos en una secuencia")
-parser.add_argument("-i", "--input", metavar="path/to/file",
+parser.add_argument("-i", "--input",
                     help="secuencia de aas", required=True)
-parser.add_argument("-as", "--aminoAcidos", metavar="path/to/file",
+parser.add_argument("-as", "--aminoAcidos",
                     help="lista aminoacidos a buscar", required=False)
 args = parser.parse_args()
 
@@ -33,8 +34,16 @@ args = parser.parse_args()
 secuencia = args.input.upper()
 aa_s = args.aminoAcidos
 
+try:
+    if re.search("\d", secuencia):
+        raise ValueError()
+except ValueError:
+    print("Tu secuencia contiene digito(s)\n")
+    quit()
 
 # funcion para calcular porcentaje
+
+
 def porcentaje_aa(secuencia, aa_s=['A', 'I', 'L', 'M', 'F', 'W', 'Y', 'V']):
     porcentaje = 0
     for aa in aa_s:
@@ -45,6 +54,7 @@ def porcentaje_aa(secuencia, aa_s=['A', 'I', 'L', 'M', 'F', 'W', 'Y', 'V']):
 
 # imprimir porcentaje
 if aa_s:
-    print(porcentaje_aa(secuencia, aa_s.upper()))
+    print(
+        F"Los aminoacidos que busca representan el {porcentaje_aa(secuencia, aa_s.upper())}%\n")
 else:
-    print(porcentaje_aa(secuencia))
+    print(F"Aminoacidos hidrofobicos: {porcentaje_aa(secuencia)}%\n")

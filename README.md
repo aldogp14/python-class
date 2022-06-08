@@ -8,3 +8,10 @@ Hay 4 carpetas principales:
                         ej_count_nucleotides.py
                         ej_fasta.py
                         ej_porcentaje_GCAT.py
+                        ATcontent_fasta.py
+                        ej_adapters.py
+                        ej_sequences_fasta.py
+                        piedra_papel_tijera.py
+                        porcentaje_aa_lista.py
+                        porcentaje_aa.py
+                        
