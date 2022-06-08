@@ -3,7 +3,7 @@ NAME
     ej_adapters
 
 VERSION
-   1.0
+   1.1
 
 AUTHOR
     Aldo Garcia Prado
@@ -17,16 +17,29 @@ ARGUMENTS
     null
 '''
 # Guardar las secuencias como una como lista.
-file = open('data/input_adapters.txt')
-sequences = file.readlines()
+from typing import IO
 
-# Abrir el archivo
-no_adapters = open("results/no_adapters.txt", 'w')
+# Agregar excepcion en la que la direccion del archivo este mal
+try:
+    file = open('data/input_adapters.txt')
 
-# Recorrer la lista de las secuencias y excluir el adaptador.
-for sequence in sequences:
-    sequence.strip('\n')
-    no_adapters.write(F"{sequence[14:]}")
+except IOError as ex:
+    print(F"El archivo {ex.filename} no se encuentra\n")
+    quit ()
+    
+else:
+    sequences = file.readlines()
 
-# Cerrar el archivo
-no_adapters.close()
+    # Abrir el archivo
+    no_adapters = open("results/no_adapters.txt", 'w')
+
+    # Recorrer la lista de las secuencias y excluir el adaptador.
+    for sequence in sequences:
+        sequence.strip('\n')
+        no_adapters.write(F"{sequence[14:]}")
+
+    # Cerrar el archivo
+    no_adapters.close()
+
+    # Dar mensaje al usuario de donde se encuentra el resultado
+    print(F"Las secuencias sin adaptadores se encuentran en results/no_adapters.txt\n")
