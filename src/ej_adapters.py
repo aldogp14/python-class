@@ -11,13 +11,19 @@ AUTHOR
 DESCRIPTION
     Programa que quita adaptadores que van de la posicion 1 a 14 de secuencias.
 USAGE
-    null
+    py ej_adapters.py
 
 ARGUMENTS
     null
 '''
 # Guardar las secuencias como una como lista.
+
+file = open('data/input_adapters.txt', 'r')
+sequences = file.readlines()
+file.close()
+
 from typing import IO
+
 
 # Agregar excepcion en la que la direccion del archivo este mal
 try:
