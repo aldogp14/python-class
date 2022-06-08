@@ -97,7 +97,9 @@ ejemplo: a.data b.data c.data y z.data    "*.data !z.data"
 
 **git remote -v** verificar que se haya enlazado
 
+**git push origin master** 
 
+**git pull origin master**
 
 
 

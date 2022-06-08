@@ -3,35 +3,49 @@ NAME
     ej_adapters
 
 VERSION
-   1.0
+   1.1
 
 AUTHOR
     Aldo Garcia Prado
 
 DESCRIPTION
-    Programa que quita los adaptadores de secuencias, sabiendo que dichos adaptadores: van de la posicion 1 a la 14 y que conservan la secuencia.
-
+    Programa que quita adaptadores que van de la posicion 1 a 14 de secuencias.
 USAGE
-    null
+    py ej_adapters.py
 
 ARGUMENTS
     null
 '''
-# Guardar las secuencias como una cadena y no como lista.
-file = open('data/input_adapters.txt')
-content = file.read()
+# Guardar las secuencias como una como lista.
 
-# Cortar la cadena con la secuencia del adaptador. Dicha secuencia la conozco, va de posicion 1 a 14. Guardar la secuencia cortada en una lista.
-sequences = content.split('ATTCGATTATAAGC')
+file = open('data/input_adapters.txt', 'r')
+sequences = file.readlines()
+file.close()
 
-# Abrir el archivo
-no_adapters = open("results/no_adapters.txt", 'w')
+from typing import IO
 
-# Recorrer la lista de las secuencias sin adaptador e ir guardando cada elemento (secuencias) en un archivo
-for sequence in sequences:
-    if (sequence != ""):  # evita que agregue renglones en blanco
+
+# Agregar excepcion en la que la direccion del archivo este mal
+try:
+    file = open('data/input_adapters.txt')
+
+except IOError as ex:
+    print(F"El archivo {ex.filename} no se encuentra\n")
+    quit ()
+    
+else:
+    sequences = file.readlines()
+
+    # Abrir el archivo
+    no_adapters = open("results/no_adapters.txt", 'w')
+
+    # Recorrer la lista de las secuencias y excluir el adaptador.
+    for sequence in sequences:
         sequence.strip('\n')
-        no_adapters.write(sequence)
+        no_adapters.write(F"{sequence[14:]}")
 
-# Cerrar el archivo
-no_adapters.close()
+    # Cerrar el archivo
+    no_adapters.close()
+
+    # Dar mensaje al usuario de donde se encuentra el resultado
+    print(F"Las secuencias sin adaptadores se encuentran en results/no_adapters.txt\n")
