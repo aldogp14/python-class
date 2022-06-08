@@ -22,8 +22,11 @@ ARGUMENTS
                         Direccion del archivo de salida
 '''
 
+# Pedir la secuencia al usuario y guardarla en una variable
+nombre_archivo = input("Introduce la direccion del archivo con la secuencia: ")
+archivo = open(nombre_archivo)
+contenido = archivo.read().rstrip('\n').upper()
 from multiprocessing.sharedctypes import Value
-from typing import IO
 import argparse
 
 # crear parser
