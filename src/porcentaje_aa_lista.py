@@ -9,10 +9,11 @@ AUTHOR
     Aldo Garcia Prado
 
 DESCRIPTION
-    programa que imprime la suma de los porcentajes de aminoacidos en una secuencia, los parametros se pasan por linea de comandos
+    programa que imprime la suma de los porcentajes de aminoacidos en una secuencia, 
+    los parametros se pasan por linea de comandos
 
 USAGE
-
+    python sr/porcentaje_aa_lista.py [-h] -i str [-as list]
 
 ARGUMENTS
     -i: secuencia en la que se buscara el aminoacido

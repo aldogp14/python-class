@@ -3,7 +3,7 @@ NAME
     ej_porcentaje_GCAT
 
 VERSION
-   1.1
+   1.2
 
 AUTHOR
     Aldo Garcia Prado
@@ -12,13 +12,21 @@ DESCRIPTION
     Programa que indica los porcentajes de GC y AT cuando le introduces la direccion de la secuencia.
 
 USAGE
-    usar el archivo en la direccion: data/dna.txt
+    python src/ej_porcentaje_GCAT.py [-h] -i path/to/file [-o OUTPUT]
 
 ARGUMENTS
-    null
+  -h, --help            show this help message and exit
+  -i path/to/file, --input path/to/file
+                        File with gene sequences
+  -o OUTPUT, --output OUTPUT
+                        Direccion del archivo de salida
 '''
+
+# Pedir la secuencia al usuario y guardarla en una variable
+nombre_archivo = input("Introduce la direccion del archivo con la secuencia: ")
+archivo = open(nombre_archivo)
+contenido = archivo.read().rstrip('\n').upper()
 from multiprocessing.sharedctypes import Value
-from typing import IO
 import argparse
 
 # crear parser
