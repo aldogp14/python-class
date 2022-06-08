@@ -28,6 +28,10 @@ except IOError as ex:
     print(F"El archivo {ex.filename} no se encuentra\n")
     quit()
 
+# Cerrar el archivo
+fasta.close()
+file.close()
+
 else:
     file = open(file_name)
     content = file.read().rstrip('\n')
