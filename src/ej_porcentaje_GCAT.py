@@ -6,7 +6,7 @@ VERSION
    2.0
 
 AUTHOR
-    Aldo Garcia Prado
+    Aldo 
 
 DESCRIPTION
     Programa que indica los porcentajes de GC y AT cuando le introduces la direccion de la secuencia.
