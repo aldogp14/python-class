@@ -3,7 +3,7 @@ NAME
     ej_porcentaje_GCAT
 
 VERSION
-   1.2
+   2.0
 
 AUTHOR
     Aldo Garcia Prado
