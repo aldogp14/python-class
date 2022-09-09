@@ -83,5 +83,5 @@ except IOError as ex:
     quit()
 
 else:
-    secuencia = archivo.read().rstrip('\n')
+    secuencia = archivo.read().rstrip('\n').upper()
     int_secuencia(secuencia)
