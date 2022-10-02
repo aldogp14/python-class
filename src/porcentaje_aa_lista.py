@@ -58,4 +58,4 @@ if aa_s:
     print(
         F"Los aminoacidos que busca representan el {porcentaje_aa(secuencia, aa_s.upper())}%\n")
 else:
-    print(F"Aminoacidos hidrofobicos: {porcentaje_aa(secuencia)}%\n")
+    print(F"Aminoacidos hidrofilicos: {porcentaje_aa(secuencia)}%\n")
